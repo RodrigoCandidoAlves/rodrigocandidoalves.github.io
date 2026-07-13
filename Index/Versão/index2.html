@@ -1,0 +1,453 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rodrigo Cândido Alves | Portfólio Logístico</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f6f9;
+    color:#333;
+}
+
+
+header{
+    background:linear-gradient(135deg,#003366,#0056b3);
+    color:white;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:.3s;
+}
+
+
+nav a:hover{
+    color:#ffd700;
+}
+
+
+/* HERO */
+
+.hero{
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+
+    background:
+    linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
+    url("https://interlakemecalux.cdnwm.com/img-system-shuttle-1.1.0.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+
+.hero p{
+    font-size:22px;
+    margin-bottom:35px;
+}
+
+
+.botao{
+
+    background:#FFD700;
+    color:#003366;
+    padding:18px 35px;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+    transition:.3s;
+
+}
+
+
+.botao:hover{
+    background:white;
+}
+
+
+
+/* SEÇÕES */
+
+section{
+
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:80px 0;
+
+}
+
+
+h2{
+
+    text-align:center;
+    color:#003366;
+    margin-bottom:50px;
+    font-size:38px;
+
+}
+
+
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+
+}
+
+
+
+.card{
+
+    background:white;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+    transition:.3s;
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+.card h3{
+
+    color:#0056b3;
+    margin-bottom:15px;
+
+}
+
+
+
+/* POPUP CONTATO */
+
+
+.fundo-popup{
+
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.6);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+
+}
+
+
+
+.popup-contato{
+
+    background:white;
+    width:350px;
+    padding:35px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+}
+
+
+
+.popup-contato h3{
+
+    color:#003366;
+    font-size:28px;
+    margin-bottom:25px;
+
+}
+
+
+
+.popup-contato p{
+
+    margin:20px 0;
+
+}
+
+
+
+.popup-contato a{
+
+    color:#0056b3;
+    text-decoration:none;
+    font-weight:bold;
+
+}
+
+
+
+.fechar{
+
+    position:absolute;
+    margin-left:145px;
+    margin-top:-30px;
+    font-size:30px;
+    cursor:pointer;
+    color:#003366;
+
+}
+
+
+/* FOOTER */
+
+
+footer{
+
+background:#003366;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    margin-top:60px;
+
+}
+
+
+
+/* RESPONSIVO */
+
+
+@media(max-width:768px){
+
+    header{
+
+        flex-direction:column;
+
+    }
+
+
+    nav{
+
+        margin-top:20px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:36px;
+
+    }
+
+
+    .hero p{
+
+        font-size:18px;
+
+    }
+
+}
+
+
+</style>
+
+
+</head>
+
+<header>
+
+
+<div class="logo">
+Rodrigo Candido Alves
+</div>
+
+
+<nav>
+
+<a href="#">Início</a>
+
+<a href="#">Projetos</a>
+
+<a href="experiencia.html">Experiência</a>
+
+<a href="#" onclick="mostrarContato()">
+Contato
+</a>
+
+</nav>
+
+
+</header>
+
+
+
+<!-- POPUP -->
+
+<div id="fundoPopup" class="fundo-popup">
+
+
+<div class="popup-contato">
+
+<span class="fechar" onclick="fecharContato()">
+&times;
+</span>
+
+
+<h3>
+Contato
+</h3>
+
+
+<p>
+📧
+<a href="mailto:rodrigo_candido_alves@hotmail.com">
+Enviar E-mail
+</a>
+</p>
+
+
+
+<p>
+
+📱
+
+<a href="https://wa.me/5511949221157?text=Olá%20Rodrigo,%20vim%20pelo%20seu%20portfólio."
+target="_blank">
+
+WhatsApp
+
+</a>
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<section class="hero">
+
+
+<div>
+
+
+<h1>
+Portfólio Profissional de Logística
+</h1>
+
+
+<p>
+Apresentando projetos, resultados e experiências adquiridas
+ao longo da minha carreira em operações logísticas.
+</p>
+
+
+<a href="#" class="botao">
+Conheça meus projetos
+</a>
+
+
+</div>
+
+
+</section>
+</div>
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2>
+
+<section id="experiencia">
+ 
+<section>
+<section>
+
+
+<footer>
+
+    © 2026 Rodrigo Cândido Alves • Portfólio Profissional
+
+</footer>
+
+
+
+<script>
+
+
+function mostrarContato(){
+
+    document.getElementById("fundoPopup").style.display="flex";
+
+}
+
+
+
+function fecharContato(){
+
+    document.getElementById("fundoPopup").style.display="none";
+
+}
+
+
+
+</script>
+
+</body>
+</html>
+```
