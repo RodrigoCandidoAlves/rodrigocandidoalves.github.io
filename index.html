@@ -3,212 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodrigo Candido Alves | Portfólio Logístico</title>
+
+    <title>Painel Operacional</title>
 
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body{
-            background:#f4f6f9;
-            color:#333;
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
         }
 
-        header{
-            background:linear-gradient(135deg,#003366,#0056b3);
-            color:white;
-            padding:20px 60px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .logo{
-            font-size:28px;
-            font-weight:bold;
+        #painel {
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            display: block;
         }
-
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin-left:25px;
-            transition:.3s;
-        }
-
-        nav a:hover{
-            color:#ffd700;
-        }
-
-.hero{
-    height:85vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-
-    background:
-    linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
-    url("https://interlakemecalux.cdnwm.com/img-system-shuttle-1.1.0.jpg");
-
-    background-size:cover;
-    background-position:center;
-}
-
-        .hero p{
-            font-size:22px;
-            margin-bottom:35px;
-        }
-
-        .botao{
-           display:block;
-    width:320px;
-    margin:15px auto;
-    background:#FFD700;
-    color:#003366;
-    padding:18px 35px;
-    text-decoration:none;
-    border-radius:6px;
-    font-weight:bold;
-    transition:.3s;
-    text-align:center;
-}
-
-.botao:hover{
-    background:white;
-}
-
-        section{
-            width:90%;
-            max-width:1200px;
-            margin:auto;
-            padding:80px 0;
-        }
-
-        h2{
-            text-align:center;
-            color:#003366;
-            margin-bottom:50px;
-            font-size:38px;
-        }
-
-        .cards{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:25px;
-        }
-
-        .card{
-            background:white;
-            border-radius:10px;
-            padding:30px;
-            box-shadow:0 10px 20px rgba(0,0,0,.08);
-            transition:.3s;
-        }
-
-        .card:hover{
-            transform:translateY(-8px);
-        }
-
-        .card h3{
-            color:#0056b3;
-            margin-bottom:15px;
-        }
-
-        footer{
-            background:#003366;
-            color:white;
-            text-align:center;
-            padding:30px;
-        }
-
-        @media(max-width:768px){
-
-            header{
-                flex-direction:column;
-            }
-
-            nav{
-                margin-top:20px;
-            }
-
-            .hero h1{
-                font-size:36px;
-            }
-
-            .hero p{
-                font-size:18px;
-            }
-
-        }
-
     </style>
-
 </head>
+
 <body>
 
-<header>
+    <img id="painel" src="slide1.png" alt="Painel Operacional">
 
-<div class="logo">
-RODRIGO CANDIDO ALVES
-</div>
+    <script>
 
-<nav>
-    <a href="#">Início</a>
-      <a href="area-de-atuacao.html">Área de Atuação</a>
-    <a href="experiencia.html">Experiência</a>
-    <a href="contato.html">Contato</a>
-</nav>
+        const slides = [
+            "slide1.png",
+            "slide2.png",
+            "slide3.png",
+            "slide4.png",
+            "slide5.png",
+            "slide6.png",
+        ];
 
-</header>
+        const painel = document.getElementById("painel");
 
-<section class="hero">
+        let atual = 0;
 
-<div>
+        // Pré-carrega as imagens
+        slides.forEach(function(slide) {
+            const img = new Image();
+            img.src = slide;
+        });
 
-<h1>Portfólio Profissional de Logística</h1>
+        // Troca de slide a cada 10 segundos
+        function trocarSlide() {
 
-<p>
-"Sua meta é ser o melhor do mundo naquilo que você faz. Não existem alternativas."
-— Vicente Falconi
-</p>
+            atual++;
 
-<p>
-Antes de conhecer minha trajetória, assista a esta reflexão.
-</p>
+            if (atual >= slides.length) {
+                atual = 0;
+            }
 
-<a href="reflexao.html" class="botao">
-🎥 Assistir à Reflexão
-</a>
+            painel.src = slides[atual];
+        }
 
-<a href="minha-trajetoria.html" class="botao">
-👤 Conheça minha trajetória
-</a>
+        setInterval(trocarSlide, 10000);
 
-</div>
+        // Mantém a página ativa
+        setInterval(function() {
 
-</section>
+            // Pequena atividade no DOM
+            document.title = "Painel Operacional - " +
+                new Date().toLocaleTimeString();
 
-<section>
+        }, 30000);
 
-</p>
-</div>
+        // Se a página voltar a ficar visível,
+        // garante que a apresentação continue
+        document.addEventListener("visibilitychange", function() {
 
-</div>
+            if (!document.hidden) {
+                painel.src = slides[atual];
+            }
 
-</section>
+        });
 
-<footer>
-
-<p>
-© 2026 Rodrigo Candido Alves • Portfólio Profissional
-</p>
-
-</footer>
+    </script>
 
 </body>
 </html>
